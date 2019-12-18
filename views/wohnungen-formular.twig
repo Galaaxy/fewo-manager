@@ -4,9 +4,11 @@
     <div class="container-fluid">
         <div class="row">
 
-            {#<pre>
-                <code>{{ bilder | print_r }}</code>
-            </pre>#}
+            {#
+            <pre>
+                <code>{{ fewo_data | print_r }}</code>
+            </pre>
+            #}
 
             <form class="form-horizontal" method="post">
 
@@ -28,12 +30,28 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="ewPage" class="col-sm-12 control-label">Unterseite (Wohnungs Unterseite)</label>
+                    <div class="col-md-12">
+                        <select class="form-control" name="ewPage">
+                            {% for page in pages %}
+                            {% set selected = '' %}
+                            {% if page.guid == fewo_data.page %}
+                                {% set selected = 'selected' %}
+                            {% endif %}
+                            <option value="{{ page.guid }}" {{ selected }}>{{ page.post_title }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <label for="ewGroesse" class="col-sm-12 control-label">Größe</label>
                     <div class="col-md-12 input-group">
                         <input type="number" step=0.01 class="form-control" value="{{ fewo_data.groesse|number_format(2, '.', ',') }}" name="ewGroesse" id=" ewGroesse">
                         <div class="input-group-addon">qm</div>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label for="ewZimmer" class="col-sm-12 control-label">Anzahl Zimmer</label>
                     <div class="col-md-12">

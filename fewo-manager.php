@@ -22,6 +22,7 @@ function fewo_manager_activate(){
 			"$wpdb->base_prefix"."fewo_wohnungen" => "CREATE TABLE `".$wpdb->base_prefix."fewo_wohnungen` (
 				`id` INT(11) NOT NULL AUTO_INCREMENT,
 				`name` VARCHAR(50) NULL DEFAULT NULL,
+				`page` VARCHAR(80) NULL DEFAULT NULL,
 				`groesse` DOUBLE NULL DEFAULT '0',
 				`zimmer` INT(3) NULL DEFAULT NULL,
 				`schlafzimmer` INT(3) NULL DEFAULT NULL,

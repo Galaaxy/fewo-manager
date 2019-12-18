@@ -27,6 +27,7 @@ class wohnung {
 	private $text;
 	private $wifi;
 	private $aufenthalt;
+	private $page;
 
 
 
@@ -45,6 +46,7 @@ class wohnung {
 
 			$this->id               = $data["ewId"];
 			$this->name             = "'".$data["ewName"]."'";
+            $this->page             = "'".$data["ewPage"]."'";
 			$this->groesse          = "'".$data["ewGroesse"]."'";
 			$this->zimmer           = "'".$data["ewZimmer"]."'";
 			$this->schlafzimmer     = "'".$data["ewSchlafzimmer"]."'";
@@ -63,10 +65,12 @@ class wohnung {
 			$this->text             = "'".$data["text"]."'";
 			$this->aufenthalt       = "'".$data["ewAufenthalt"]."'";
 
+
 			$queryString =
 				"UPDATE ".$wpdb->base_prefix."fewo_wohnungen SET
 
 				name 			= $this->name,
+				page		    = $this->page,
 				groesse 		= $this->groesse,
 				zimmer 			= $this->zimmer,
 				schlafzimmer 	= $this->schlafzimmer,

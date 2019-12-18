@@ -97,6 +97,7 @@ function renderWohnungFormular(){
 	$context["fewo_data"] = $wpdb->get_row("SELECT * from ".$wpdb->base_prefix."fewo_wohnungen where id = $id");
 	$context["plugin_url"]  = plugins_url()."/fewo-manager";
 	$context["actual_url"]  = $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $context["pages"] = get_pages();
 	$context["bilder"]      = loadImages();
 	Timber::render("wohnungen-formular.twig",$context);
 
